@@ -1,0 +1,39 @@
+<style>
+    .btn_save {
+        margin-top: 28px;
+    }
+</style>
+<% @card_title = 'Matricular Alunos' %>
+<% @btn_new = link_to matriculas_path, class: 'btn btn-outline-secondary btn-icon-split btn-md', title: 'Voltar' do 
+content_tag(:span, content_tag(:i, nil, class: "fa fa-angle-double-left"), class: 'icon text-white-50') + content_tag(:span, 'Voltar', class: 'text d-none d-lg-block d-xl-block')
+end %>
+ 
+<fieldset class='border border-primary p-2'>
+    <legend class='w-auto'>Matricular Alunos -
+        <%= " #{@turma.serie.name} - #{@turma.name}"  %>
+    </legend>
+    <%= simple_form_for(@matricula, defaults: { input_html: { class: 'form-control-sm' }, label_html: { class: 'col-form-label col-form-label-sm' } }, remote: true) do |f| %>
+
+    <div class='form-row'>
+        <div class='col-sm-12  col-md-12 col-lg-6 '>
+            <%= f.input :student_id, collection: @students, label_method: :student %>
+        </div>
+        <div class='col-sm-12  col-md-12 col-lg-6 btn_save'>
+            <%= btn_save %>
+        </div>
+    </div>
+    <%= f.hidden_field :turma_id, value: params[:id] %>
+    <% end %>
+</fieldset>
+
+<hr>
+
+<div class="table-responsive">
+    <%= table_for(@matriculas) do %>
+    <% field_table('Aluno')  { |f| f.student.name } %>
+    <% field_table('Nascimento')  { |f| date(f.student.nascimento) } %>
+    <% field_table('Situação')  { |f| situacao(f.situation.situacao)} %>
+    <% field_table('Apagar')  { |f| btn_delete(f, true)  } %>
+    <% end %>
+</div>
+

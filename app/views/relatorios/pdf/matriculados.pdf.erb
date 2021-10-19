@@ -1,0 +1,40 @@
+<style type="text/css">
+    .avoid {
+        page-break-inside: avoid !important;
+        margin: 4px 0 4px 0;
+        /* to keep the page break from cutting too close to the text in the div */
+    }
+</style>
+<div align='center'><strong>Matriculados - <%=@year.year %></strong></div>
+
+
+
+<table class='table table-striped table-bordered table-sm '>
+    <thead style="background-color: aliceblue;font-weight: bold;" , align='center'>
+        <tr>
+            <div class="avoid">
+                <td>Aluno</td>
+            </div>
+            <div class="avoid">
+                <td>Nascimento</td>
+            </div>
+            <div class="avoid">
+                <td>Turma</td>
+            </div>
+        </tr>
+    </thead>
+
+    <tbody>
+        <%# @matriculas.where(turma_id: params[:turmas_ids][0]).each do |f| %>
+        <% @matriculas.where(turma_id: params[:turmas_ids]).each do |f| %>
+        <tr>
+
+            <td><%=f.student.name %></td>
+            <td><%=date(f.student.nascimento) %></td>
+            <td><%="#{f.turma.serie.name} - #{f.turma.name}" %></td>
+
+        </tr>
+        <% end %>
+
+    </tbody>
+</table <strong>Total Alunos: <%=@matriculas.ids.count %></strong>

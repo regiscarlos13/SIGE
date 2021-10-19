@@ -1,0 +1,19 @@
+<% @card_title = "Registro de " + @event.model_name.human(count: 1) %>
+<p>
+    <strong><%= translate 'activerecord.attributes.event.title' %>:</strong>
+    <%= @event.title %>
+</p>
+<p>
+    <strong><%= translate 'activerecord.attributes.event.start' %>:</strong>
+    <%= @event.start %>
+</p>
+<p>
+    <strong><%= translate 'activerecord.attributes.event.end' %>:</strong>
+    <%= @event.end %>
+</p>
+<p>
+    <strong><%= translate 'activerecord.attributes.event.year' %>:</strong>
+    <%= @event.year %>
+</p>
+<%= btn_edit(edit_event_path(@event)) %> |
+<%= btn_back(events_path) %>

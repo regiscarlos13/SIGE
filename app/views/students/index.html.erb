@@ -1,0 +1,14 @@
+<% @card_title = "Relação de " + @students.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_student_path) %>
+
+
+<div class="table-responsive">
+	<%= table_for(@students) do %>
+		<% field_table(@students.model.human_attribute_name('name'))  { |f| f.name } %>
+		<% field_table(@students.model.human_attribute_name('mae'))  { |f| f.mae } %>
+		<% field_table(@students.model.human_attribute_name('cpf'))  { |f| format_cpf(f.cpf) } %>
+		<% field_table(@students.model.human_attribute_name('censo'))  { |f| f.censo } %>
+		<% btn_form %>
+			
+	<% end %>
+</div>

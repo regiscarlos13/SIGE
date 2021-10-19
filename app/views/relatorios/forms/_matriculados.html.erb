@@ -1,0 +1,14 @@
+<%= form_tag((@route), target: "_blank", method: "get") do %>
+<div class="row row-cols-2">
+    <% @turmas.each do |f| %>
+        <div class="col">  <%= check_box_tag 'turmas_ids[]', f.id, checked: true %> <strong> <%= f.serie.name %> <%= f.name %> </strong> <br></div>  
+    <% end %>
+</div>
+<div class="modal-footer mt-3">
+    <%= button_tag(type: 'submit', class: 'btn btn-primary', name: nil) do %>
+    <i class="fa fa-print"></i> Imprimir
+    <% end %>
+</div>
+
+
+<% end %>

@@ -1,0 +1,87 @@
+<div data-controller='student' >
+	<%= simple_form_for(@student, defaults: { input_html: { class: 'form-control-sm' }, label_html: { class: 'col-form-label col-form-label-sm' }}) do |f| %>
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Dados Pessoais</legend>
+		<div class="form-row">
+			<%= col((f.input :cpf, placeholder: '___.___.___-__', maxlength: 14, input_html: { data: { controller: 'cpf', action: 'change->student#search_cpf change->cpf#valida_cpf', target: 'student.cpf cpf.cpf' }}), '12', '3', '2' ) %>
+
+
+			<%= col((f.input :name, placeholder: 'Nome Aluno', input_html: { data: { target: 'student.name'} }), '12', '3', '5' ) %>
+			<%= col((f.input :rg, placeholder: 'RG Aluno'), '12', '3', '2' ) %>
+
+			<%= col((f.input :nascimento, as: :string, input_html: { data: {target: 'student.nascimento'} ,type: 'date'} ), '12', '3', '3' ) %>
+		</div>
+		<div class="form-row">
+			<%= col((f.input :naturalidade, placeholder: 'Naturalidade', input_html: { data: { target: 'student.naturalidade'} }), '12', '3', '3' ) %>
+			<%= col((f.input :sexo, collection: @sexos,  as: :radio_buttons, prompt: false), '12', '3', '2' ) %>
+			<%= col((f.input :censo, placeholder: 'Censo Escolar', input_html: {data: {target: 'student.censo'}}), '12', '3', '3' ) %>
+			<%= col((f.input :necessidade), '12', '3', '3' ) %>
+		</div>
+	</fieldset>
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Filiação</legend>
+			<div class="form-row">
+
+				<%= col((f.input :cpfmae, placeholder: '___.___.___-__', input_html: { data: { controller: 'cpf', action: 'change->cpf#valida_cpf' ,target: 'cpf.cpf student.cpfmae'} } ), '12', '6', '2' ) %>
+				<%= col((f.input :mae, placeholder: 'Nome da Mãe', input_html: { data: { target: 'student.mae'} }), '12', '6', '6' ) %>
+			</div>
+
+			<div class="form-row">
+
+				<%= col((f.input :cpfpai, placeholder: '___.___.___-__', input_html: { data: { controller: 'cpf', action: 'change->cpf#valida_cpf', target: 'student.cpfpai cpf.cpf'} }), '12', '6', '2' ) %>
+				<%= col((f.input :pai, placeholder: 'Nome do Pai', input_html: { data: { target: 'student.pai'} }), '12', '6', '6'  ) %>
+			</div>
+
+	</fieldset>
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Endereço</legend>
+		<div data-controller='cep'>
+			<div class="form-row">
+
+
+				<%= col((f.input :cep, placeholder: '__.___-__', maxlength: 10, input_html: { data: { action: 'change->cep#search_cep', target: 'cep.cep' }}), '12', '12', '3') %>
+
+				<%= col((f.input :rua, placeholder: 'Logradouro', input_html: { data: {target: 'cep.logradouro'} }), '12', '12', '7') %>
+				<%= col((f.input :numero, placeholder: '____'), '12', '12', '2') %>
+			</div>
+			<div class="form-row">
+				<%= col((f.input :cidade, placeholder: 'Cidade', input_html: { data: {target: 'cep.localidade'} }), '12', '12', '4') %>
+				<%= col((f.input :uf, placeholder: 'UF', input_html: { data: {target: 'cep.uf'} }), '12', '12', '2') %>
+				<%= col((f.input :bairro, placeholder: 'Bairro', input_html: { data: {target: 'cep.bairro'} }), '12', '12', '3') %>
+				<%= col((f.input :complemento, placeholder: 'Complemento'), '12', '12', '3') %>
+			</div>
+		</div>
+	</fieldset>
+
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Contatos</legend>
+		<div class="form-row">
+			<%= col((f.input :email, placeholder: 'email@exemplo.com'), '12', '6', '6' ) %>
+			<%= col((f.input :telefone, placeholder: '(__) _.____-___', input_html: {data: {target: 'student.telefone'} }), '12', '6', '2' ) %>
+
+		</div>
+	</fieldset>
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Reponsável Financeiro</legend>
+		<%= render partial: 'financeiro', locals: {f: f} %>
+
+	</fieldset>
+
+	<fieldset class="border border-primary p-2">
+		<legend  class="w-auto">Foto</legend>
+		<div class="form-row">
+			<strong>Em Desenvolvimento</strong>
+		</div>
+	</fieldset>
+
+
+	<hr>
+
+	<%= btn_save %> | <%= btn_cancel(students_path) %>
+	<% end %>
+</div>

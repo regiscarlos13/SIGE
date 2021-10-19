@@ -1,0 +1,31 @@
+<% @card_title = "Registro de " + @turma.model_name.human(count: 1) %>
+<p>
+	<strong><%= translate 'activerecord.attributes.turma.serie' %>:</strong>
+	<%= @turma.serie.name %> - <%= @turma.name %>
+	
+</p>
+<p>
+	<strong>Carga Horária:</strong>
+	<%= @turma.disciplinaturmas.sum(:hora) %>
+</p>
+<hr>
+
+<div align="center">
+	<strong>Disciplinas da Turma</strong>
+</div>
+
+<div class="table-responsive">
+	<%= table_for(@turma.disciplinaturmas) do %>
+		<% field_table(@turma.disciplinaturmas.model.human_attribute_name('subject'))  { |f| f.subject.name } %>
+		<% field_table(@turma.disciplinaturmas.model.human_attribute_name('teacher'))  { |f| f.teacher.name } %>
+		<% field_table(@turma.disciplinaturmas.model.human_attribute_name('hora'))     { |f| f.hora         } %>
+	<% end %>
+</div>
+
+<hr>
+
+<div class="d-print-none">
+<%= btn_edit(edit_turma_path(@turma)) %> | 
+<%= btn_back(turmas_path) %>
+	
+</div>

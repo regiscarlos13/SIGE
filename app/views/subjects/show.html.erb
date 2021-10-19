@@ -1,0 +1,8 @@
+<% @card_title = "Registro de " + @subject.model_name.human(count: 1) %>
+<p>
+	<strong><%= translate 'activerecord.attributes.subject.name' %>:</strong>
+	<%= @subject.name %>
+</p>
+
+<%= btn_edit(edit_subject_path(@subject)) %> | 
+<%= btn_back(subjects_path) %>

@@ -1,0 +1,9 @@
+<% @card_title = "Relação de " + @series.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_serie_path) %>
+
+<div class="table-responsive">
+	<%= table_for(@series) do %>
+		<% field_table(@series.model.human_attribute_name('name'))  { |f| f.name } %>
+		<% btn_form %>
+	<% end %>
+</div>

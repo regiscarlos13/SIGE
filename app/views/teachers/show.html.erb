@@ -1,0 +1,39 @@
+							<% @card_title = "Registro de " + @teacher.model_name.human(count: 1) %>
+															<p>
+								<strong><%= translate 'activerecord.attributes.teacher.cpf' %>:</strong>
+								<%= @teacher.cpf %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.name' %>:</strong>
+								<%= @teacher.name %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.cep' %>:</strong>
+								<%= @teacher.cep %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.bairro' %>:</strong>
+								<%= @teacher.bairro %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.cidade' %>:</strong>
+								<%= @teacher.cidade %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.rua' %>:</strong>
+								<%= @teacher.rua %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.uf' %>:</strong>
+								<%= @teacher.uf %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.numero' %>:</strong>
+								<%= @teacher.numero %>
+								</p>
+																<p>
+								<strong><%= translate 'activerecord.attributes.teacher.complemento' %>:</strong>
+								<%= @teacher.complemento %>
+								</p>
+																<%= btn_edit(edit_teacher_path(@teacher)) %> | 
+								<%= btn_back(teachers_path) %>

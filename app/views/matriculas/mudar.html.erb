@@ -1,0 +1,13 @@
+<% @card_title = 'Mudar Aluno de Turma' %>
+
+<div class="table-responsive">
+    <%= table_for(@turmas) do %>
+    <% field_table(@turmas.model.human_attribute_name('name'))  { |f| link_to " #{f.serie.name} - #{f.name}", alunos_mudar_path(f.id) } %>
+    <% field_table('T. Alunos Matriculados')  { |f| f.matriculas.count } %>
+
+    <% field_table('Mudar')  { |f| link_to alunos_mudar_path(f.id), class: 'btn btn-outline-success btn-icon-split btn-md', title: 'Entrar' do 
+content_tag(:span, content_tag(:i, nil, class: "fa fa-users"), class: 'icon text-white-50') + content_tag(:span, 'Entrar', class: 'text d-none d-lg-block d-xl-block')
+end} %>
+
+    <% end %>
+</div>

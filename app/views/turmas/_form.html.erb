@@ -1,0 +1,32 @@
+<%= simple_form_for(@turma, defaults: { input_html: { class: 'form-control-sm' }, label_html: { class: 'col-form-label col-form-label-sm' } }) do |f| %>
+
+<fieldset class="border border-primary p-2">
+	<legend class="w-auto">Cadastro da Turma</legend>
+	
+	<div class="form-row">
+		<%= col((f.association :serie), '12', '6', '3') %>
+		<%= col((f.input :name), '12', '6', '1') %>
+		
+	</div>
+
+</fieldset>
+
+<legend class="mt-2">Cadatro de Disciplinas</legend>
+
+<div id="disciplinaturmas">
+	<%= f.simple_fields_for(:disciplinaturmas) do |ff| %>
+
+	<%= render partial: "disciplinaturma_fields", locals: { f: ff } %>
+
+	<% end %>
+	<div class="field mt-2">
+		<%= link_to_add_association('Adicionar Disciplina', f, :disciplinaturmas, class: 'btn btn-outline-primary', title: 'Adicionar Nova Disciplina') %>
+	</div>
+</div>
+
+
+
+
+<hr>
+<%= btn_save %> | <%= btn_cancel(turmas_path) %>
+<% end %>

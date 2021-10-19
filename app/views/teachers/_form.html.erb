@@ -1,0 +1,32 @@
+<%= simple_form_for(@teacher, defaults: { input_html: { class: 'form-control-sm' }, label_html: { class: 'col-form-label col-form-label-sm' } }) do |f| %>
+
+<fieldset class="border border-primary p-2">
+	<legend  class="w-auto">Dados Pessoais</legend>
+	<div class="form-row">
+		<%= col((f.input :cpf, placeholder: '___.___.___-__', maxlength: 14, input_html: { data: { controller: 'cpf', action: 'change->cpf#valida_cpf', target: 'cpf.cpf' }}), '12', '3', '2' ) %>
+		<%= col((f.input :name), '12', '3', '5' ) %>
+
+	</div>
+
+</fieldset>
+<fieldset class="border border-primary p-2">
+	<legend  class="w-auto">Endereço</legend>
+	<div data-controller='cep'>
+		<div class="form-row">
+			<%= col((f.input :cep, placeholder: '__.___-__', maxlength: 10, input_html: { data: { action: 'change->cep#search_cep', target: 'cep.cep' }}), '12', '12', '3') %>
+
+			<%= col((f.input :rua, placeholder: 'Logradouro', input_html: { data: {target: 'cep.logradouro'} }), '12', '12', '7') %>
+			<%= col((f.input :numero, placeholder: '____'), '12', '12', '2') %>
+		</div>
+		<div class="form-row">
+			<%= col((f.input :cidade, placeholder: 'Cidade', input_html: { data: {target: 'cep.localidade'} }), '12', '12', '4') %>
+			<%= col((f.input :uf, placeholder: 'UF', input_html: { data: {target: 'cep.uf'} }), '12', '12', '2') %>
+			<%= col((f.input :bairro, placeholder: 'Bairro', input_html: { data: {target: 'cep.bairro'} }), '12', '12', '3') %>
+			<%= col((f.input :complemento, placeholder: 'Complemento'), '12', '12', '3') %>
+		</div>
+	</div>
+</fieldset>
+<hr>
+<%= btn_save %> | <%= btn_cancel(teachers_path) %>
+
+<% end %>

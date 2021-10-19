@@ -1,0 +1,11 @@
+<% @card_title = "Relação de " + @turmas.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_turma_path) %>
+
+<div class="table-responsive">
+    <%= table_for(@turmas) do %>
+    <% field_table(@turmas.model.human_attribute_name('name'))  { |f| " #{f.serie.name} - #{f.name}" } %>
+    <% field_table('T. Disciplina')  { |f| f.disciplinaturmas.count(:id) } %>
+    <% field_table('C. Horária')  { |f| f.disciplinaturmas.sum(:hora) } %>
+    <% btn_form %>
+    <% end %>
+</div>

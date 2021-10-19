@@ -1,0 +1,8 @@
+<% @card_title = "Registro de " + @serie.model_name.human(count: 1) %>
+<p>
+	<strong><%= translate 'activerecord.attributes.serie.name' %>:</strong>
+	<%= @serie.name %>
+</p>
+<hr>
+<%= btn_edit(edit_serie_path(@serie)) %> | 
+<%= btn_back(series_path) %>

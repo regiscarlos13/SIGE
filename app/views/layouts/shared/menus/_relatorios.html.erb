@@ -1,0 +1,9 @@
+<%= link_to 'Alunos Matriculados', relatorios_matriculados_path, class: 'dropdown-item', remote: true %>
+
+<%= link_to 'Alunos Ficha', matriculas_path, class: 'dropdown-item disabled' %>
+<%= link_to 'Alunos Contratos', matriculas_path, class: 'dropdown-item disabled' %>
+<%= link_to 'Alunos Aniversariante', matriculas_path, class: 'dropdown-item disabled' %>
+<div class="dropdown-divider"></div>
+<%= link_to 'Relação de Turmas', relatorios_turmas_path(format: :pdf), target: "_blank", class: 'dropdown-item' %>
+
+

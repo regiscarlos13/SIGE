@@ -1,0 +1,14 @@
+<%= simple_form_for(@event, defaults: { input_html: { class: 'form-control-sm' }, label_html: { class: 'col-form-label col-form-label-sm' } }) do |f| %>
+
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class='form-row'>
+    <%= col((f.input :title), '12', '6', '6') %>
+    <%= col((f.input :start, as: :string, input_html: {type: 'date'}), '12', '3', '2') %>
+    <%= col((f.input :end, as: :string, input_html: {type: 'date'}), '12', '3', '2') %>
+
+</div>
+
+<%= btn_save %> | <%= btn_cancel(events_path) %>
+<% end %>

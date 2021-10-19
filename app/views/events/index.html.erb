@@ -1,0 +1,26 @@
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
+   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js'></script>
+
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           var calendarEl = document.getElementById('calendar');
+           var calendar = new FullCalendar.Calendar(calendarEl, {
+               locale: 'pt-BR',
+               events: "/events.json"
+           });
+           calendar.render();
+       });
+   </script>
+
+   <% @card_title = "Relação de " + @events.model_name.human(count: 2) %>
+   <% @btn_new = btn_new(new_event_path) %>
+
+   <div id="calendar"> </div>
+
+   <hr>
+   <div class="table-responsive d-print-none">
+       <%= table_for(@events) do %>
+       <% field_table(@events.model.human_attribute_name('title'))  { |f| f.title } %>
+       <% btn_form %>
+       <% end %>
+   </div>

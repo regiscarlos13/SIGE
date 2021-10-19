@@ -1,0 +1,15 @@
+<style type="text/css">
+	.margin {
+		margin-top: 30px;
+	}
+</style>
+
+<div class="nested-fields " data-controller='select2'>
+	<div class="form-row">
+		<%= col((f.association :subject), '12', '6', '3') %>
+		<%= col((f.association :teacher), '12', '6', '5') %>
+		<%= col((f.input :hora), '12', '6', '1') %>
+		<%= col((link_to_remove_association('Remover', f, class: 'btn btn-outline-danger btn-sm margin', title: 'Remover Disciplina')), '12', '6', '2')%>
+	</div>
+</div>
+

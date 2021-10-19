@@ -1,0 +1,12 @@
+<% @card_title = "Relação de " + @years.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_year_path) %>
+
+<div class="table-responsive">
+	<%= table_for(@years) do %>
+		<% field_table(@years.model.human_attribute_name('year'))  { |f| f.year } %>
+		<% field_table(@years.model.human_attribute_name('inicio'))  { |f| date(f.inicio) } %>
+		<% field_table(@years.model.human_attribute_name('fim'))  { |f| date(f.fim) } %>
+		<% field_table(@years.model.human_attribute_name('media'))  { |f| f.media } %>
+		<% btn_form %>
+	<% end %>
+</div>

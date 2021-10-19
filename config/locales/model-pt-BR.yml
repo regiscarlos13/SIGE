@@ -1,0 +1,125 @@
+'pt-BR':
+  activerecord:
+    models:
+      school:
+        one: Escola
+        other: Escolas
+      year:
+        one: Ano Letivo
+        other: Anos Letivos
+      subject:
+        one: Disciplina
+        other: Disciplinas
+      serie:
+        one: Série
+        other: Séries
+      student:
+        one: Aluno
+        other: Alunos
+      teacher:
+        one: Professor
+        other: Professores
+      turma:
+        one: Turma
+        other: Turmas
+      disciplinaturma:
+        one: Disciplina
+        other: Disciplina
+      matricula:
+        one: Matricula
+        other: Matriculas
+      event:
+        one: Evento
+        other: Eventos
+    attributes:
+      default: &default
+        id: Código
+        created_at: Criado em
+        updated_at: Atualizado em
+        type_person: Tipo de Pessoa
+       
+      school:
+        <<: *default
+        name: Nome
+      year:
+        <<: *default
+        year: Ano Letivo
+        media: Média Final
+        inicio: Ínicio Ano Letivo
+        fim: Fim Ano Letivo
+        inicio1: Ínicio 1º Período
+        fim1: Fim 1º Período
+        inicio2: Ínicio 2º Período
+        fim2: Fim 2º Período
+        inicio3: Ínicio 3º Período
+        fim3: Fim 3º Período
+        inicio4: Ínicio 4º Período
+        fim4: Fim 4º Período
+        inicior: Ínicio Recuperação
+        fimr: Fim Recuperação
+      school:
+        <<: *default
+        name: Nome
+      serie:
+        <<: *default
+        name: Nome
+      student:
+        <<: *default
+        name: Nome
+        cpf: CPF
+        mae: Mãe
+        cpfmae: CPF Mãe
+        pai: Pai
+        cpfpai: CPF Pai
+        maefincaneiro: Responsável Financeiro?
+        paifincaneiro: Responsável Financeiro?
+        necessidade: Necessidades educacionais especiais?
+        cep: CEP
+        rg: RG
+        uf: UF
+        numero: Número
+        telefone: Telefône
+        rua: Logradouro
+        cpf_financeiro: CPF
+        nome_financeiro: Nome
+        cep_financeiro: CEP
+        bairro_financeiro: Bairro
+        cidade_financeiro: Cidade
+        rua_financeiro: Rua
+        uf_financeiro: UF
+        numero_financeiro: Nº
+        complemento_financeiro: Complemento
+      teacher:
+        <<: *default
+        name: Nome
+        cpf: CPF
+        cep: CEP
+        uf: UF
+        numero: Número
+        rua: Logradouro
+        cpf_financeiro: CPF
+        nome_financeiro: Nome
+        cep_financeiro: CEP
+        bairro_financeiro: Bairro
+        cidade_financeiro: Cidade
+        rua_financeiro: Rua
+        uf_financeiro: UF
+        numero_financeiro: Nº
+        complemento_financeiro: Complemento
+      turma:
+        <<: *default
+        name: Turma
+        serie: Série
+      disciplinaturma:
+        <<: *default
+        subject: Disciplina
+        teacher: Professor
+        hora: C. Horária
+      matricula:
+        <<: *default
+        student_id: Estudante
+      event:
+        <<: *default
+        title: Título
+        start: Início
+        end: Fim

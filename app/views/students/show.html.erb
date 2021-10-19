@@ -1,0 +1,166 @@
+<% @card_title = "Registro de " + @student.model_name.human(count: 1) %>
+<div class="border-bottom" align="center">
+	<h2> <strong>DADOS PESSOAIS DO ALUNO</strong></h2>
+</div>
+
+<div class="form-row">
+	<div class="col-sm-12 col-md-12 col-lg-4" align="center">
+		<div class="border mt-3" style="width: 200px; height: 200px">
+			foto
+		</div>
+	</div>
+
+	<div class="col-sm-12 col-md-12 col-lg-8">
+		<div class="form-row">
+			<div class="col-sm-12 col-md-12 col-lg-4">
+				<strong><%= translate 'activerecord.attributes.student.cpf' %>: </strong> <%=  format_cpf(@student.cpf) %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-8">
+				<strong><%= translate 'activerecord.attributes.student.name' %>: </strong><%= @student.name %>
+			</div>
+		</div>
+		<div class="form-row mt-3">
+			<div class="col-sm-12 col-md-12 col-lg-4">
+				<strong><%= translate 'activerecord.attributes.student.nascimento' %>: 	</strong>	<%= date(@student.nascimento) %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-3">
+				<strong><%= translate 'activerecord.attributes.student.sexo' %>: </strong><%= @student.sexo %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-5">
+				<strong><%= translate 'activerecord.attributes.student.censo' %>: </strong><%= @student.censo %>
+			</div>
+		</div>
+		<div class="form-row mt-3">
+			<div class="col-sm-12 col-md-12 col-lg-4">
+				<strong><%= translate 'activerecord.attributes.student.naturalidade' %>:</strong>
+				<%= @student.naturalidade %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-8">
+				<strong><%= translate 'activerecord.attributes.student.necessidade' %>: </strong><%= i18n_yes(@student.necessidade) %>
+			</div>
+		</div>
+		<div class="form-row mt-3">
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.mae' %>:</strong>
+				<%= @student.mae %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.cpfmae' %>:</strong>
+				<%= format_cpf(@student.cpfmae) %> 
+			</div>
+
+			
+		</div>
+
+		<div class="form-row mt-3">
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.pai' %>:</strong>
+				<%= @student.pai %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.cpfpai' %>:</strong>
+				<%= format_cpf(@student.cpfpai) %>
+			</div>
+		</div>
+
+		<div class="form-row mt-3">
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.email' %>:</strong>
+				<%= @student.email %>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-6">
+				<strong><%= translate 'activerecord.attributes.student.telefone' %>:</strong>
+				<%= format_cpf(@student.telefone) %>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+<hr>
+<legend>Endereço</legend>
+<div class="form-row mt-4">
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.cep' %>: </strong><%= format_cep(@student.cep) %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-7">
+		<strong><%= translate 'activerecord.attributes.student.rua' %>: </strong> <%= @student.rua %>
+	</div>
+
+	<div class="col-sm-12 col-md-12 col-lg-2">
+		<strong><%= translate 'activerecord.attributes.student.numero' %>: </strong>	<%= @student.numero %>
+
+	</div>
+</div>
+<div class="form-row mt-4">
+	<div class="col-sm-12 col-md-12 col-lg-4">
+		<strong><%= translate 'activerecord.attributes.student.cidade' %>: </strong>	<%= @student.cidade %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-2">
+		<strong><%= translate 'activerecord.attributes.student.uf' %>:</strong>	<%= @student.uf %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.bairro' %>: </strong>	<%= @student.bairro %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.complemento' %>:</strong><%= @student.complemento %>
+	</div>
+</div>
+
+<hr>
+<legend>Responsável Financeiro</legend>
+
+<div class="form-row">
+	<div class="col-sm-12 col-md-12 col-lg-2">
+		<strong><%= translate 'activerecord.attributes.student.cpf_financeiro' %>: </strong><%= @student.cpf_financeiro %>
+	</div>
+
+	<div class="col-sm-12 col-md-12 col-lg-6">
+		<strong><%= translate 'activerecord.attributes.student.nome_financeiro' %>: </strong><%= @student.nome_financeiro %>
+	</div>
+	
+</div>
+
+
+<div class="form-row mt-4">
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.cep_financeiro' %>: </strong><%= format_cep(@student.cep_financeiro) %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-7">
+		<strong><%= translate 'activerecord.attributes.student.rua_financeiro' %>: </strong> <%= @student.rua_financeiro %>
+	</div>
+
+	<div class="col-sm-12 col-md-12 col-lg-2">
+		<strong><%= translate 'activerecord.attributes.student.numero_financeiro' %>: </strong>	<%= @student.numero_financeiro %>
+
+	</div>
+</div>
+<div class="form-row mt-4">
+	<div class="col-sm-12 col-md-12 col-lg-4">
+		<strong><%= translate 'activerecord.attributes.student.cidade_financeiro' %>: </strong>	<%= @student.cidade_financeiro %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-2">
+		<strong><%= translate 'activerecord.attributes.student.uf_financeiro' %>:</strong>	<%= @student.uf %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.bairro_financeiro' %>: </strong>	<%= @student.bairro_financeiro %>
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-3">
+		<strong><%= translate 'activerecord.attributes.student.complemento_financeiro' %>:</strong><%= @student.complemento_financeiro %>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<hr>
+<%= btn_edit(edit_student_path(@student)) %> | 
+<%= btn_back(students_path) %>

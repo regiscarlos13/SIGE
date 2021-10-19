@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Sistema de Gestão Escolar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<%#= favicon_link_tag 'favicon.ico' %>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+	<%= javascript_pack_tag 'application' %>
+</head>
+
+<body data-flash-messages="<%= JSON.dump(flash.to_a) %>" data-controller='year'>
+	<%= render partial: 'layouts/shared/navbar' %>
+	<div class="container" >
+		<div class="d-flex justify-content-end mt-4">
+			<div class="p-2 bd-highlight"><%= @btn_print %></div>
+			<div class="p-2 bd-highlight"><%= @btn_new %></div>
+		</div>
+		<div class="card ">
+			<div class="card-header bg-primary-blue text-white" >
+				<div class="form-row">
+					<div class="col-sm-9  col-md-9 col-lg-10">
+						<b><%= @card_title %></b>	
+					</div>
+					<div class="col-sm-3  col-md-3 col-lg-2 d-print-none">
+						Expira em: <span data-target='year.hora' >30:00</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

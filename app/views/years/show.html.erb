@@ -1,0 +1,81 @@
+<% @card_title = "Registro de " + @year.model_name.human(count: 1) %>
+
+<div class="form-row"> 
+	<div class="col">
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.year' %>:</strong>
+			<%= @year.year %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.media' %>:</strong>
+			<%= @year.media %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.inicio' %>:</strong>
+			<%= date(@year.inicio) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fim' %>:</strong>
+			<%= date(@year.fim) %>
+		</p>
+		
+	</div>
+	<div class="col">
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.inicio1' %>:</strong>
+			<%= date(@year.inicio1) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fim1' %>:</strong>
+			<%= date(@year.fim1) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.inicio2' %>:</strong>
+			<%= date(@year.inicio2) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fim2' %>:</strong>
+			<%= date(@year.fim2) %>
+		</p>
+
+	</div>
+
+	<div class="col">
+				<p>
+			<strong><%= translate 'activerecord.attributes.year.inicio3' %>:</strong>
+			<%= date(@year.inicio3) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fim3' %>:</strong>
+			<%= date(@year.fim3) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.inicio4' %>:</strong>
+			<%= date(@year.inicio4) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fim4' %>:</strong>
+			<%= date(@year.fim4) %>
+		</p>
+		
+	</div>
+
+	<div class="col">
+				<p>
+			<strong><%= translate 'activerecord.attributes.year.inicior' %>:</strong>
+			<%= date(@year.inicior) %>
+		</p>
+		<p>
+			<strong><%= translate 'activerecord.attributes.year.fimr' %>:</strong>
+			<%= date(@year.fimr) %>
+		</p>
+
+	</div>
+
+
+
+</div>
+
+<hr>
+<%= btn_edit(edit_year_path(@year)) %> | 
+<%= btn_back(years_path) %>

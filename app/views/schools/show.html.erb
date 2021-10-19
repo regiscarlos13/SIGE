@@ -1,0 +1,13 @@
+<% @card_title = "Registro de " + @school.model_name.human(count: 1) %>
+<p>
+	<strong><%= translate 'activerecord.attributes.school.name' %>:</strong>
+	<%= @school.name %>
+
+	
+</p>
+
+<% if @school.logo.attached? %>
+  <%= image_tag @school.logo.variant(resize_to_limit: [100, 100])%>
+<% end %>
+<%= btn_edit(edit_school_path(@school)) %> | 
+<%= btn_back(schools_path) %>

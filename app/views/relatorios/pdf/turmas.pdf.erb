@@ -1,0 +1,17 @@
+<div align='center'>
+    <strong>Turmas - <%= @year.year %> </strong>
+</div>
+
+<div class="table-responsive" align='center'>
+
+    <%= table_for(@turmas) do %>
+    <% field_table('Turma')  { |f| "#{f.serie.name} - #{f.name}" } %>
+    <% field_table('T. Disciplinas')  { |f| f.disciplinaturmas.count(:id) } %>
+    <% field_table('C. Horária')  { |f| f.disciplinaturmas.sum(:hora) } %>
+    <% field_table('T. Alunos')  { |f|  f.matriculas.count } %>
+    <% end %>
+
+</div>
+<hr>
+<strong>Total Turmas: <%= @turmas.count %></strong> <br>
+<strong>Total Alunos: <%= @total_matriculas %></strong>

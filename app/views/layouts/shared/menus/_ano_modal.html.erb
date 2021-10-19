@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade" id="ano_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SIGE</h5>
+
+            </div>
+            <div class="modal-body">
+
+                <% if current_user.school.bloquear? %>
+                <% @title = 'Acesso Bloqueado' %>
+                <strong>Sem Acesso ao Sistema. Entre em contato com o Administrador (85) 9.9687-9669</strong>
+
+                <div class="modal-footer">
+                    <%= link_to   destroy_user_session_path, method: :delete,  class: 'btn btn-primary' do %>
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                    <% end %>
+
+                </div>
+
+
+
+                <% else %>
+                <%= form_tag(sessions_path  , method: "get") do %>
+
+                <div data-controller='select2'>
+                    <strong>Escolha o Ano Letivo:</strong>
+                    <%= select_tag :year_select, options_from_collection_for_select(Year.where(school_id: current_user.school.id), "id", "year", cookies.encrypted[:selected_year]), class: 'select_tag' %>
+                </div>
+                <% @title = 'Escolha Ano Letivo' %>
+
+                <div class="modal-footer">
+                    <%= button_tag(type: 'submit', class: 'btn btn-primary', id: 'button_banco', name: nil) do %>
+                    <i class="fa fa-save"></i> Salvar
+                </div>
+                <% end %>
+                <% end %>
+                <% end %>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

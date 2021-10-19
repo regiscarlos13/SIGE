@@ -1,0 +1,3 @@
+<% @route = relatorios_matriculados_path(format: :pdf) %>
+$('#modal_relatorios').modal('show');
+$('#relatorios').html('<%=j render 'relatorios/forms/matriculados' %>');

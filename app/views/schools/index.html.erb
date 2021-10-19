@@ -1,0 +1,10 @@
+<% @card_title = "Relação de " + @schools.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_school_path) %>
+
+<div class="table-responsive">
+	<%= table_for(@schools) do %>
+		<% field_table(@schools.model.human_attribute_name('name'))  { |f| f.name } %>
+		<% field_table(@schools.model.human_attribute_name('bloqueado'))  { |f| f.bloquear } %>
+		<% btn_form %>
+	<% end %>
+</div>
